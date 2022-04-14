@@ -94,6 +94,8 @@ export default {
     ENTER_LAST_NAME:'Please enter the last name',
     ENTER_MESSAGE:'Please enter the message',
     PRODUCT: 'Product',
-    CLIENT_DIRECTORY:'Client Directory'
+    CLIENT_DIRECTORY:'Client Directory',
+    YES:'Yes',
+    NO:'No',
 
 }

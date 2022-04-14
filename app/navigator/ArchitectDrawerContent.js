@@ -181,19 +181,7 @@ export default ArchitectDrawerContent = (props) => {
                         }}
                     />
                 } */}
-                <DrawerItem
-                    icon={({ color, size, focused }) => (
 
-                        <Image source={Config.Images.CONTACT_US}
-                            resizeMode='contain'
-                            style={styles.commonIcon}
-                        />
-
-                    )}
-                    label={Config.Strings.String_en.CONTACT_US}
-                    labelStyle={styles.commonlabel}
-                    onPress={() => { props.navigation.navigate('ContactUs') }}
-                />
                 <DrawerItem
                     icon={({ color, size, focused }) => (
 
@@ -230,7 +218,19 @@ export default ArchitectDrawerContent = (props) => {
                         })
                     }}
                 />
+                <DrawerItem
+                    icon={({ color, size, focused }) => (
 
+                        <Image source={Config.Images.CONTACT_US}
+                            resizeMode='contain'
+                            style={styles.commonIcon}
+                        />
+
+                    )}
+                    label={Config.Strings.String_en.CONTACT_US}
+                    labelStyle={styles.commonlabel}
+                    onPress={() => { props.navigation.navigate('ContactUs') }}
+                />
                 <DrawerItem
                     icon={({ color, size, focused }) => (
 

@@ -153,22 +153,22 @@ export default Home = ({ navigation }) => {
                         containerStyle={[Styles.categoryList, { marginTop: 30 }]}
                     />
                     <Component.CustomImageButton
-                        image={Config.Images.HOME_SLIMICA}
+                        image={Config.Images.HOME_INNOVICA}
                         onPress={() => {
                             navigation.navigate('LaminateList',
                                 {
-                                    catelog: 'slimica'
+                                    catelog: 'innovica'
                                 })
                         }}
                         imageStyle={{ width: '100%', height: '70%', }}
                         containerStyle={[Styles.categoryList, { marginTop: 30 }]}
                     />
                     <Component.CustomImageButton
-                        image={Config.Images.HOME_INNOVICA}
+                        image={Config.Images.HOME_SLIMICA}
                         onPress={() => {
                             navigation.navigate('LaminateList',
                                 {
-                                    catelog: 'innovica'
+                                    catelog: 'slimica'
                                 })
                         }}
                         imageStyle={{ width: '100%', height: '70%', }}

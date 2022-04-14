@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Image, Platform } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image, Platform, Modal } from 'react-native';
 import Styles from './Styles';
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 import Component from '../../component';
@@ -21,9 +21,12 @@ export default BankDetails = ({ navigation, route }) => {
     const userProfile = useSelector(state => state.reducer.userProfile);
     const userData = useSelector(state => state.reducer.userData)
     const userToken = useSelector(state => state.reducer.userToken)
+    const [isUpdatingData, setIsUpdatingData] = useState(false);
+    const [updateConfirmationModalVisible, setUpdateConfirmationModalVisible] = useState(false);
 
     useEffect(() => {
         if (!!userProfile.bank_name) {
+            setIsUpdatingData(true)
             setBankName(userProfile.bank_name)
         }
         if (!!userProfile.account_name) {
@@ -160,7 +163,14 @@ export default BankDetails = ({ navigation, route }) => {
                 <Component.CustomButton
                     label={Config.Strings.String_en.VERIFY}
                     onPress={() => {
-                        onVerifyPress();
+                        if (validations()) {
+                            if (isUpdatingData) {
+                                setUpdateConfirmationModalVisible(true)
+                            } else {
+                                onVerifyPress();
+                            }
+                        }
+
                     }}
                     containerStyle={Styles.signupButton}
                 />
@@ -203,6 +213,34 @@ export default BankDetails = ({ navigation, route }) => {
                 }
 
             </View>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={updateConfirmationModalVisible}>
+                <View style={Styles.centeredView}>
+                    <View style={Styles.modalView}>
+                        <Component.CustomText style={Styles.dialogTitleText}>Updating Bank Details</Component.CustomText>
+                        <Component.CustomText style={Styles.descriptionTextStyle}>Are you sure you want to edit?</Component.CustomText>
+                        <View style={Styles.flexRow}>
+                            <Component.CustomButton
+                                label={Config.Strings.String_en.NO}
+                                onPress={() => {
+                                    setUpdateConfirmationModalVisible(false)
+                                }}
+                                containerStyle={Styles.continueButton}
+                            />
+                            <Component.CustomButton
+                                label={Config.Strings.String_en.YES}
+                                onPress={() => {
+                                    setUpdateConfirmationModalVisible(false)
+                                    onVerifyPress();
+                                }}
+                                containerStyle={Styles.continueButton}
+                            />
+                        </View>
+                    </View>
+                </View>
+            </Modal>
         </View>
     );
 }
