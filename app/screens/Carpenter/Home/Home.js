@@ -32,6 +32,13 @@ export default Home = ({ navigation }) => {
     }
 
     const withdrawRequest = async () => {
+        if (!!userProfile.bank_name) {
+
+        } else {
+            Utils.Method.showToast('Bank Details', 'Please verify your bank details first', 2);
+            setWithdrawButton(false)
+            return;
+        }
         if (withdrawAmount > parseFloat(userProfile.total_rewards)) {
             Utils.Method.showToast('Withdraw Request', `You can withdraw max ${userProfile.total_rewards} points.`, 2);
             setWithdrawButton(false)
@@ -68,7 +75,7 @@ export default Home = ({ navigation }) => {
         <View style={Styles.mainContainer}>
             <Component.CustomStatusBar backgroundColor={Config.Theme.COLOR_PRIMARY} />
             <Component.CustomHeader
-                centerImage={Config.Images.SURFICA_LOGO}
+                centerImage={Config.Images.SURFICA_LOGO_1}
                 leftImage={Config.Images.DRAWER}
                 leftButtonPress={() => {
                     navigation.openDrawer();

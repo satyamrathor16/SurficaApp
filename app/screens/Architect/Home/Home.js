@@ -35,7 +35,7 @@ export default Home = ({ navigation }) => {
         <View style={Styles.mainContainer}>
             <Component.CustomStatusBar backgroundColor={Config.Theme.COLOR_PRIMARY} />
             <Component.CustomHeader
-                centerImage={Config.Images.SURFICA_LOGO}
+                centerImage={Config.Images.SURFICA_LOGO_1}
                 leftImage={Config.Images.DRAWER}
                 leftButtonPress={() => {
                     navigation.openDrawer();
@@ -58,21 +58,21 @@ export default Home = ({ navigation }) => {
                         >
                             <View style={[Styles.slideContainer, Styles.slide1]}>
                                 <Image
-                                    source={Config.Images.LAMINATE_5}
+                                    source={Config.Images.CAROUSEL_1}
                                     style={Styles.slideImage}
                                     resizeMode='cover'
                                 />
                             </View>
                             <View style={[Styles.slideContainer, Styles.slide2]}>
                                 <Image
-                                    source={Config.Images.LAMINATE_3}
+                                    source={Config.Images.CAROUSEL_2}
                                     style={Styles.slideImage}
                                     resizeMode='cover'
                                 />
                             </View>
                             <View style={[Styles.slideContainer, Styles.slide3]}>
                                 <Image
-                                    source={Config.Images.LAMINATE_7}
+                                    source={Config.Images.CAROUSEL_3}
                                     style={Styles.slideImage}
                                     resizeMode='cover'
                                 />

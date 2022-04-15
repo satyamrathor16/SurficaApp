@@ -13,6 +13,7 @@ export default {
     BACK: require('../assets/images/ic_back.png'),
     DRAWER:require('../assets/images/menu_icon.png'),
     SURFICA_LOGO:require('../assets/images/logo_header.png'),
+    SURFICA_LOGO_1:require('../assets/images/header_logo_trimmed.png'),
     SHARE:require('../assets/images/ic_forward.png'),
     ARROW_RIGHT:require('../assets/images/dropdown.png'),
     PRIVACY:require('../assets/images/Policy.png'),
@@ -47,5 +48,7 @@ export default {
     PICK_GALLERY:require('../assets/images/ic_gallery.png'),
     REFFERS:require('../assets/images/ic_recommendations.png'),
     LOGO_DARK:require('../assets/images/company_logo_dark.png'),
-
+    CAROUSEL_1:require('../assets/images/carousel_image_1.jpeg'),
+    CAROUSEL_2:require('../assets/images/carousel_image_2.jpeg'),
+    CAROUSEL_3:require('../assets/images/carousel_image_3.jpeg'),
 }

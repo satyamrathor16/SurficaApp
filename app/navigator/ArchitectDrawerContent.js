@@ -32,7 +32,7 @@ export default ArchitectDrawerContent = (props) => {
                 <View>
                     <Component.CustomText style={styles.userName}>{userData.name}</Component.CustomText>
                     <Component.CustomText style={styles.userRole}>{userRole == Config.Constants.ARCHITECT ? '(' + Config.Strings.String_en.ARCHITECT + ')' : '(' + Config.Strings.String_en.CARPENTER + ')'}</Component.CustomText>
-                    <Component.CustomText style={styles.myAccountText}>My Account</Component.CustomText>
+                    {/* <Component.CustomText style={styles.myAccountText}>My Account</Component.CustomText> */}
                 </View>
                 <Image
                     source={Config.Images.ARROW_RIGHT}
