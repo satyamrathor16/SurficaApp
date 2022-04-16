@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         // borderWidth:2
     },
     centerImage: {
-        height: 35,
+        height: 45,
         width: 150,
     },
     centerImageContainer: {
