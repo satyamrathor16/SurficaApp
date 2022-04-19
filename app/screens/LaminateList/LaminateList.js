@@ -46,30 +46,57 @@ export default LaminateList = ({ navigation, route }) => {
     }, [])
 
     const pageStartApi = async () => {
-        var selectedPattern = patternFilter.filter(item => {
-            return item.isSelected
+
+        // var selectedPattern = patternFilter.filter(item => {
+        //     return item.isSelected
+        // })
+        // var selectedfinish = finishFilter.filter(item => {
+        //     return item.isSelected
+        // })
+        // var selectedthickness = thicknessFilter.filter(item => {
+        //     return item.isSelected
+        // })
+        var selectedPattern = '';
+        var isSelectedPattern = false;
+        patternFilter.map(item => {
+            if (item.isSelected) {
+                selectedPattern += item.title + ','
+                isSelectedPattern = true
+            }
         })
-        var selectedfinish = finishFilter.filter(item => {
-            return item.isSelected
+        var selectedfinish = '';
+        var isSelectedfinish = false;
+        finishFilter.map(item => {
+            if (item.isSelected) {
+                selectedfinish += item.title + ','
+                isSelectedfinish = true;
+            }
         })
-        var selectedthickness = thicknessFilter.filter(item => {
-            return item.isSelected
+
+        var selectedthickness = '';
+        var isSelectedthickness = false;
+        thicknessFilter.filter(item => {
+            if (item.isSelected) {
+                selectedthickness += item.title + ','
+                isSelectedthickness = true
+            }
         })
-        // console.log(selectedPattern, selectedfinish, selectedthickness);
+
+        console.log(selectedPattern.slice(0, -1), selectedfinish.slice(0, -1), selectedthickness.slice(0, -1));
         let payload = {
             page: 1,
             token: userToken,
             brand: route.params.catelog
         }
 
-        if (selectedPattern.length > 0) {
-            payload.pattern = selectedPattern[0].title;
+        if (isSelectedPattern) {
+            payload.pattern = selectedPattern.slice(0, -1);
         }
-        if (selectedfinish.length > 0) {
-            payload.finish = selectedfinish[0].title;
+        if (isSelectedfinish) {
+            payload.finish = selectedfinish.slice(0, -1);
         }
-        if (selectedthickness.length > 0) {
-            payload.thickness = selectedthickness[0].title;
+        if (isSelectedthickness) {
+            payload.thickness = selectedthickness.slice(0, -1);
         }
         // console.log('payload', JSON.stringify(payload));
         setLoadingData(true)
@@ -86,28 +113,44 @@ export default LaminateList = ({ navigation, route }) => {
     }
 
     const getMoreProducts = async () => {
-        var selectedPattern = patternFilter.filter(item => {
-            return item.isSelected
+        var selectedPattern = '';
+        var isSelectedPattern = false;
+        patternFilter.map(item => {
+            if (item.isSelected) {
+                selectedPattern += item.title + ','
+                isSelectedPattern = true
+            }
         })
-        var selectedfinish = finishFilter.filter(item => {
-            return item.isSelected
+        var selectedfinish = '';
+        var isSelectedfinish = false;
+        finishFilter.map(item => {
+            if (item.isSelected) {
+                selectedfinish += item.title + ','
+                isSelectedfinish = true;
+            }
         })
-        var selectedthickness = thicknessFilter.filter(item => {
-            return item.isSelected
+
+        var selectedthickness = '';
+        var isSelectedthickness = false;
+        thicknessFilter.filter(item => {
+            if (item.isSelected) {
+                selectedthickness += item.title + ','
+                isSelectedthickness = true
+            }
         })
         let payload = {
             page: paging,
             token: userToken,
             brand: route.params.catelog
         }
-        if (selectedPattern.length > 0) {
-            payload.pattern = selectedPattern[0].title;
+        if (isSelectedPattern) {
+            payload.pattern = selectedPattern.slice(0, -1);
         }
-        if (selectedfinish.length > 0) {
-            payload.finish = selectedfinish[0].title;
+        if (isSelectedfinish) {
+            payload.finish = selectedfinish.slice(0, -1);
         }
-        if (selectedthickness.length > 0) {
-            payload.thickness = selectedthickness[0].title;
+        if (isSelectedthickness) {
+            payload.thickness = selectedthickness.slice(0, -1);
         }
         setMoreDataLoader(true)
         const apiData = await Config.ServerCalls.PostApiCall(Config.ServerCallUrls.GET_PRODUCTS, JSON.stringify(payload), {}, false);
@@ -234,8 +277,6 @@ export default LaminateList = ({ navigation, route }) => {
             patternFilter.map(i => {
                 if (item.title == i.title) {
                     i.isSelected = !i.isSelected
-                } else {
-                    i.isSelected = false
                 }
                 return i;
             })
@@ -250,8 +291,6 @@ export default LaminateList = ({ navigation, route }) => {
             finishFilter.map(i => {
                 if (item.title == i.title) {
                     i.isSelected = !i.isSelected
-                } else {
-                    i.isSelected = false
                 }
                 return i;
             })
@@ -266,8 +305,6 @@ export default LaminateList = ({ navigation, route }) => {
             thicknessFilter.map(i => {
                 if (item.title == i.title) {
                     i.isSelected = !i.isSelected
-                } else {
-                    i.isSelected = false
                 }
                 return i;
             })

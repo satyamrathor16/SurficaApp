@@ -32,13 +32,6 @@ export default Home = ({ navigation }) => {
     }
 
     const withdrawRequest = async () => {
-        if (!!userProfile.bank_name) {
-
-        } else {
-            Utils.Method.showToast('Bank Details', 'Please verify your bank details first', 2);
-            setWithdrawButton(false)
-            return;
-        }
         if (withdrawAmount > parseFloat(userProfile.total_rewards)) {
             Utils.Method.showToast('Withdraw Request', `You can withdraw max ${userProfile.total_rewards} points.`, 2);
             setWithdrawButton(false)
@@ -112,7 +105,13 @@ export default Home = ({ navigation }) => {
                             label={Config.Strings.String_en.WITHDRAW}
                             onPress={() => {
                                 // withdrawRequest();
-                                setOtpModalVisible(true)
+                                if (!!userProfile.bank_name) {
+                                    setOtpModalVisible(true)
+                                } else {
+                                    Utils.Method.showToast('Bank Details', 'Please verify your bank details first', 2);
+                                    setWithdrawButton(false)
+                                    return;
+                                }
                             }}
                             containerStyle={Styles.signupButton}
                         />
