@@ -1,7 +1,7 @@
 import { Dimensions, Platform } from 'react-native';
 
 const IS_LIVE = false;
-var baseURL = IS_LIVE ? 'http://surfica.pmcommu.in/api/v1/' : 'https://test13.infilon.net/api/v1/';
+var baseURL = IS_LIVE ? 'https://crm.surficaapp.com/api/v1/' : 'https://test13.infilon.net/api/v1/';
 
 
 export default {
