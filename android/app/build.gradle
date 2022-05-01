@@ -131,11 +131,11 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.surficaapp"
+        applicationId "com.surfica"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "2.0"
         missingDimensionStrategy 'react-native-camera', 'general'
     }
     splits {

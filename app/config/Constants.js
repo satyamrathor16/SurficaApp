@@ -1,6 +1,6 @@
 import { Dimensions, Platform } from 'react-native';
 
-const IS_LIVE = false;
+const IS_LIVE = true;
 var baseURL = IS_LIVE ? 'https://crm.surficaapp.com/api/v1/' : 'https://test13.infilon.net/api/v1/';
 
 

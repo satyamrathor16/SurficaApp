@@ -1,4 +1,4 @@
-package com.surficaapp;
+package com.surfica;
 
 import com.facebook.react.ReactActivity;
 
